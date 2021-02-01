@@ -23,6 +23,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require("./routes/authRoutes")(app);
+
 // Heroku sets the PORT environment variable if running in prod
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
