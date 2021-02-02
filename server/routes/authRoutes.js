@@ -11,12 +11,12 @@ module.exports = (app) => {
     "/auth/twitter/callback",
     passport.authenticate("twitter", {
       successRedirect: "/",
-      failureRedirect: "/login",
+      failureRedirect: "/login_status",
     })
   );
 
   // when login is successful, retrieve user info
-  app.get("/login/success", (req, res) => {
+  app.get("/login_status", (req, res) => {
     if (req.user) {
       res.json({
         success: true,
@@ -24,15 +24,12 @@ module.exports = (app) => {
         user: req.user,
         cookies: req.cookies,
       });
+    } else {
+      res.status(401).json({
+        success: false,
+        message: "Failed to authenticate user",
+      });
     }
-  });
-
-  // when login failed, send failed msg
-  app.get("/login/failed", (req, res) => {
-    res.status(401).json({
-      success: false,
-      message: "Failed to authenticate user",
-    });
   });
 
   // When logout, redirect to client
