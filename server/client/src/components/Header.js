@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 class Header extends Component {
   renderContent() {
@@ -7,18 +8,66 @@ class Header extends Component {
       case null:
         return;
       case false:
-        return <a href="/auth/twitter">Sign in with Twitter</a>;
+        return (
+          <ul className="right">
+            <a
+              id="twitter-button"
+              className="btn btn-block btn-social btn-twitter"
+              style={{
+                width: 220,
+                "text-align": "right",
+                display: "inline-block",
+                "background-color": "#1DA1F2",
+              }}
+              href="/auth/twitter"
+            >
+              Sign in with Twitter
+              <i className="fa fa-twitter"></i>
+            </a>
+          </ul>
+        );
       default:
-        return "Logged in";
+        return (
+          <ul className="right">
+            <a
+              id="twitter-button"
+              className="btn btn-block btn-social btn-twitter"
+              style={{
+                width: 220,
+                "text-align": "center",
+                display: "inline-block",
+                "background-color": "#1DA1F2",
+              }}
+              href="/api/logout"
+            >
+              Logout
+            </a>
+          </ul>
+        );
     }
   }
 
   render() {
     return (
-      <nav>
+      <nav
+        style={{
+          "background-color": "white",
+          display: "flex-inline",
+          "justify-content": "space-around",
+        }}
+      >
         <div className="nav-wrapper">
-          <a className="left brand-logo">Twitter TopLinks</a>
-          <ul className="right">{this.renderContent()}</ul>
+          <Link
+            to={this.props.auth ? "/dashboard" : "/"}
+            className="left brand-logo"
+            style={{
+              color: "#AAB8C2",
+              "font-family": "Poppins, sans-serif",
+            }}
+          >
+            Twitter TopLinks
+          </Link>
+          <ul>{this.renderContent()}</ul>
         </div>
       </nav>
     );
