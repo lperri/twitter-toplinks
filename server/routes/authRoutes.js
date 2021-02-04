@@ -1,4 +1,5 @@
 const passport = require("passport");
+const { emitWarning } = require("process");
 
 module.exports = (app) => {
   app.get("/", (req, res) => {
@@ -11,29 +12,17 @@ module.exports = (app) => {
     "/auth/twitter/callback",
     passport.authenticate("twitter", {
       successRedirect: "/",
-      failureRedirect: "/login_status",
+      failureRedirect: "/",
     })
   );
 
   // when login is successful, retrieve user info
-  app.get("/login_status", (req, res) => {
-    if (req.user) {
-      res.json({
-        success: true,
-        message: "User has successfully been authenticated",
-        user: req.user,
-        cookies: req.cookies,
-      });
-    } else {
-      res.status(401).json({
-        success: false,
-        message: "Failed to authenticate user",
-      });
-    }
+  app.get("/api/login/status", (req, res) => {
+    res.send(req.user);
   });
 
   // When logout, redirect to client
-  app.get("/logout", (req, res) => {
+  app.get("/api/logout", (req, res) => {
     req.logout();
     res.redirect("/");
   });
