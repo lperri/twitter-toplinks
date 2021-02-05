@@ -33,7 +33,12 @@ passport.use(
         return done(null, existingUser);
       }
       // we don't have a user record with this ID, make a new record
-      const user = await new User({ twitterId: profile.id }).save();
+      const user = await new User({
+        twitterId: profile.id,
+        fullName: profile.displayName,
+        firstName: profile.displayName.split(" ")[0],
+        lastName: profile.displayName.split(" ").slice(1).join(" "),
+      }).save();
       done(null, user);
     }
   )

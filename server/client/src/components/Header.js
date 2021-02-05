@@ -1,3 +1,4 @@
+import "./Header.css";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
@@ -13,12 +14,6 @@ class Header extends Component {
             <a
               id="twitter-button"
               className="btn btn-block btn-social btn-twitter"
-              style={{
-                width: 220,
-                "text-align": "right",
-                display: "inline-block",
-                "background-color": "#1DA1F2",
-              }}
               href="/auth/twitter"
             >
               Sign in with Twitter
@@ -32,13 +27,8 @@ class Header extends Component {
             <a
               id="twitter-button"
               className="btn btn-block btn-social btn-twitter"
-              style={{
-                width: 220,
-                "text-align": "center",
-                display: "inline-block",
-                "background-color": "#1DA1F2",
-              }}
               href="/api/logout"
+              style={{ textAlign: "center" }}
             >
               Logout
             </a>
@@ -49,21 +39,11 @@ class Header extends Component {
 
   render() {
     return (
-      <nav
-        style={{
-          "background-color": "white",
-          display: "flex-inline",
-          "justify-content": "space-around",
-        }}
-      >
+      <nav className="site-header">
         <div className="nav-wrapper">
           <Link
             to={this.props.auth ? "/dashboard" : "/"}
-            className="left brand-logo"
-            style={{
-              color: "#AAB8C2",
-              "font-family": "Poppins, sans-serif",
-            }}
+            className="brand-logo"
           >
             Twitter TopLinks
           </Link>

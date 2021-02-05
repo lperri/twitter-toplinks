@@ -4,6 +4,9 @@ const { Schema } = mongoose;
 // we can freely add or subtract properties
 const userSchema = new Schema({
   twitterId: String,
+  fullName: String,
+  firstName: String,
+  lastName: String,
 });
 
 // mongoose.model tells mongoose we want to create a
