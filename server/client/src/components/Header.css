@@ -1,0 +1,33 @@
+a:hover {
+  color: #aab8c2;
+}
+
+.nav-wrapper {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  font-family: "Poppins, sans-serif";
+  font-family: "Poppins";
+  padding: 2em 0 2em 0;
+}
+
+.brand-logo {
+  flex: 1;
+  float: left;
+  font-size: 2vw;
+  color: #657786;
+  text-decoration: none;
+}
+
+.btn-twitter {
+  background-color: #1da1f2;
+  flex: 1;
+  float: right;
+  font-size: 1vw;
+  width: 10vw;
+  padding: 1em 1em 1em 4.5em;
+}
+
+.fa-twitter {
+  padding: 0.5em;
+}
