@@ -11,7 +11,7 @@ module.exports = (app) => {
   app.get(
     "/auth/twitter/callback",
     passport.authenticate("twitter", {
-      successRedirect: "/",
+      successRedirect: "/dashboard",
       failureRedirect: "/",
     })
   );

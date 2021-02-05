@@ -6,9 +6,8 @@ a:hover {
   background-color: white;
   display: flex;
   align-items: center;
-  font-family: "Poppins, sans-serif";
   font-family: "Poppins";
-  padding: 2em 0 2em 0;
+  padding: 4em 0 2em 0;
 }
 
 .brand-logo {
@@ -20,14 +19,21 @@ a:hover {
 }
 
 .btn-twitter {
+  display: inline-flex;
   background-color: #1da1f2;
-  flex: 1;
   float: right;
-  font-size: 1vw;
-  width: 10vw;
-  padding: 1em 1em 1em 4.5em;
+  font-size: 1.2vw;
+  align-items: center;
+  padding-left: 7em;
+  height: 3em;
+  width: 7em;
+  padding-right: 5em;
+  text-decoration: none;
+  border-radius: 8px;
 }
 
 .fa-twitter {
-  padding: 0.5em;
+  align-items: center;
+  padding: 1em;
+  display: inline-flex;
 }
