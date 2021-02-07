@@ -2,10 +2,6 @@ const passport = require("passport");
 const { emitWarning } = require("process");
 
 module.exports = (app) => {
-  app.get("/", (req, res) => {
-    res.send({ hi: "there" });
-  });
-
   app.get("/auth/twitter", passport.authenticate("twitter"));
 
   app.get(

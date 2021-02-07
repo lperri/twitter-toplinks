@@ -13,7 +13,7 @@ a:hover {
 .brand-logo {
   flex: 1;
   float: left;
-  font-size: 2vw;
+  font-size: 3vw;
   color: #657786;
   text-decoration: none;
 }
@@ -22,10 +22,10 @@ a:hover {
   display: inline-flex;
   background-color: #1da1f2;
   float: right;
-  font-size: 1.2vw;
+  font-size: 1.5vw;
   align-items: center;
   padding-left: 7em;
-  height: 3em;
+  height: 2.5em;
   width: 7em;
   padding-right: 5em;
   text-decoration: none;
